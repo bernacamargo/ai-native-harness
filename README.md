@@ -4,12 +4,12 @@
 
 The **AI-native development playbook** I use to ship solo at team speed. Distilled from real production use: [vagaremota.dev](https://vagaremota.dev) — a live remote-jobs platform built end-to-end with AI agents under a repo harness of `AGENTS.md`, 16 project-specific skills, and worktree-based parallel sessions — plus two production-grade MCP servers: [iam-mcp-server](https://github.com/bernacamargo/iam-mcp-server) and [incident-mcp-server](https://github.com/bernacamargo/incident-mcp-server).
 
-Three pieces, each boring on purpose:
+Four pieces, each boring on purpose:
 
 | Piece | What it does | Where |
 |---|---|---|
 | **AGENTS.md conventions** | Every agent session inherits project facts, quality gates, and boundaries — no rediscovering, no drift | [`templates/AGENTS.md`](templates/AGENTS.md) |
-| **Agent skills** | Reusable playbooks that encode *how* work ships here, not just what to build — milestones, verification, multi-agent waves | [`skills/`](skills/) |
+| **Agent skills** | Reusable playbooks that encode *how* work ships here, not just what to build — milestones, verification, multi-agent waves, stacked-PR delivery | [`skills/`](skills/) |
 | **Subagents** | Read-only reviewer specialists (architecture, security, QA, PR) plus wave workers — specialists that analyze and report, never edit | [`agents/`](agents/) |
 | **Git worktree strategy** | N agent sessions in parallel, each in an isolated worktree, merging clean — [`bin/wt` usage with screenshots](bin/README.md) | [`worktrees/`](worktrees/), [`bin/wt`](bin/wt) |
 
@@ -23,6 +23,8 @@ Three pieces, each boring on purpose:
 ## The multi-agent pattern: agent-waves
 
 The pieces compose: [`skills/agent-waves`](skills/agent-waves/SKILL.md) runs a whole feature as **parallel waves** — the coordinator decomposes an approved plan, creates one worktree per task with `bin/wt`, dispatches [`agents/wave-worker.md`](agents/wave-worker.md) subagents concurrently, verifies evidence between waves, and integrates in landing order. The only human gates: approve the plan, approve the merge.
+
+When a feature needs review granularity instead of one big landing, [`skills/pr-stack`](skills/pr-stack/SKILL.md) delivers the same approved plan as a **stacked-PR chain** (`gh` + `gh-stack`): contracts first, core services above them, UI last; every layer green against its own base; merged bottom-up. [`agents/pr-reviewer.md`](agents/pr-reviewer.md) reviews the whole chain in one dispatch, and [`skills/verify-before-push`](skills/verify-before-push/SKILL.md) runs per layer — a stack is only as mergeable as its bottom layer. That closes the loop: **plan → waves → verify → stacked PRs → release.**
 
 ## Adopting it
 
