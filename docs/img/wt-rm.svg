@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="267" viewBox="0 0 880 267" font-family="ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace">
+  <rect width="880" height="267" rx="10" fill="#1e1e2e"/>
+  <path d="M0,10 a10,10 0 0 1 10,-10 h860 a10,10 0 0 1 10,10 v26 h-880 z" fill="#181825"/>
+  <circle cx="22" cy="18" r="6" fill="#f38ba8"/><circle cx="42" cy="18" r="6" fill="#f9e2af"/><circle cx="62" cy="18" r="6" fill="#a6e3a1"/>
+  <text x="440" y="23" text-anchor="middle" font-size="12" fill="#6c7086">bernardocamargo@pc-casa-wsl: ~/dev/wt-demo</text>
+  <text x="24" y="62" font-size="13.5"><tspan fill="#a6e3a1">$ </tspan><tspan fill="#cdd6f4">cd ../wt-demo-feature-auth</tspan></text>
+  <text x="24" y="83" font-size="13.5"><tspan fill="#a6e3a1">$ </tspan><tspan fill="#cdd6f4">git commit -q -m "feat(auth): add login handler" \&amp;\&amp; git log --oneline -1</tspan></text>
+  <text x="24" y="104" font-size="13.5" fill="#a6adc8">4b31fbe feat(auth): add login handler</text>
+  <text x="24" y="125" font-size="13.5"><tspan fill="#a6e3a1">$ </tspan><tspan fill="#cdd6f4">cd ../wt-demo</tspan></text>
+  <text x="24" y="146" font-size="13.5"><tspan fill="#a6e3a1">$ </tspan><tspan fill="#cdd6f4">bin/wt rm feature/auth</tspan></text>
+  <text x="24" y="167" font-size="13.5" fill="#f38ba8">Deleted branch feature/auth (was 4b31fbe).</text>
+  <text x="24" y="188" font-size="13.5"><tspan fill="#a6e3a1">$ </tspan><tspan fill="#cdd6f4">bin/wt ls</tspan></text>
+  <text x="24" y="209" font-size="13.5" fill="#a6adc8">/home/bernardocamargo/dev/wt-demo                  947e585 [main]</text>
+  <text x="24" y="230" font-size="13.5" fill="#a6adc8">/home/bernardocamargo/dev/wt-demo-feature-billing  947e585 [feature/billing]</text>
+</svg>

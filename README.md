@@ -11,7 +11,7 @@ Three pieces, each boring on purpose:
 | **AGENTS.md conventions** | Every agent session inherits project facts, quality gates, and boundaries — no rediscovering, no drift | [`templates/AGENTS.md`](templates/AGENTS.md) |
 | **Agent skills** | Reusable playbooks that encode *how* work ships here, not just what to build — milestones, verification, multi-agent waves | [`skills/`](skills/) |
 | **Subagents** | Read-only reviewer specialists (architecture, security, QA, PR) plus wave workers — specialists that analyze and report, never edit | [`agents/`](agents/) |
-| **Git worktree strategy** | N agent sessions in parallel, each in an isolated worktree, merging clean | [`worktrees/`](worktrees/), [`bin/wt`](bin/wt) |
+| **Git worktree strategy** | N agent sessions in parallel, each in an isolated worktree, merging clean — [`bin/wt` usage with screenshots](bin/README.md) | [`worktrees/`](worktrees/), [`bin/wt`](bin/wt) |
 
 ## Why it works
 
