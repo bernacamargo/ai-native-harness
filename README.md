@@ -1,8 +1,8 @@
-# ai-harness
+# ai-native-harness
 
-[![CI](https://github.com/bernacamargo/ai-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/bernacamargo/ai-harness/actions/workflows/ci.yml)
+[![CI](https://github.com/bernacamargo/ai-native-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/bernacamargo/ai-native-harness/actions/workflows/ci.yml)
 
-The **AI-native development harness** I use to ship solo at team speed. It's the setup behind [vagaremota.dev](https://vagaremota.dev) — a live remote-jobs platform built end-to-end with AI agents — and two production-grade MCP servers: [iam-mcp-server](https://github.com/bernacamargo/iam-mcp-server) and [incident-mcp-server](https://github.com/bernacamargo/incident-mcp-server).
+The **AI-native development playbook** I use to ship solo at team speed. It's the setup behind [vagaremota.dev](https://vagaremota.dev) — a live remote-jobs platform built end-to-end with AI agents — and two production-grade MCP servers: [iam-mcp-server](https://github.com/bernacamargo/iam-mcp-server) and [incident-mcp-server](https://github.com/bernacamargo/incident-mcp-server).
 
 Three pieces, each boring on purpose:
 
