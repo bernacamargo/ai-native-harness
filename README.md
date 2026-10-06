@@ -26,6 +26,17 @@ The pieces compose: [`skills/agent-waves`](skills/agent-waves/SKILL.md) runs a w
 
 When a feature needs review granularity instead of one big landing, [`skills/pr-stack`](skills/pr-stack/SKILL.md) delivers the same approved plan as a **stacked-PR chain** (`gh` + `gh-stack`): contracts first, core services above them, UI last; every layer green against its own base; merged bottom-up. [`agents/pr-reviewer.md`](agents/pr-reviewer.md) reviews the whole chain in one dispatch, and [`skills/verify-before-push`](skills/verify-before-push/SKILL.md) runs per layer — a stack is only as mergeable as its bottom layer. That closes the loop: **plan → waves → verify → stacked PRs → release.**
 
+## Third-party skills in rotation
+
+The harness story above is mine, but not every skill in my working set is — the SKILL.md ecosystem is a real open-source exchange, and good work deserves attribution:
+
+- **[grill-me / grilling](https://github.com/mattpocock/skills)** (Matt Pocock, MIT) — interrogates a plan with hard questions *before* any code exists. I run it ahead of the human approval gates in [agent-waves](skills/agent-waves/SKILL.md) and [pr-stack](skills/pr-stack/SKILL.md): the machine attacks the plan so the human approves a survivor.
+- **[tdd](https://github.com/mattpocock/skills) · [to-spec](https://github.com/mattpocock/skills) · [code-review](https://github.com/mattpocock/skills)** (same MIT set) — red-green discipline, spec-first framing, and structured review on top of the [read-only reviewers](agents/).
+- **[unslop](https://github.com/michaelshimeles/skills/tree/main/unslop)** (Lauren Tan, MIT) — keeps docs and PR bodies from reading like AI output.
+- **Vendor packs, installed on demand** — [angular/skills](https://github.com/angular/skills), spring-boot and kotlin skills, plus Stripe/Twilio/Resend doc-skills: domain depth when a task enters their territory, not part of the core story.
+
+The rule I follow: **link and credit, don't fork silently** — and vendor-specific skills never make it into the reusable playbook.
+
 ## Adopting it
 
 1. Copy [`templates/AGENTS.md`](templates/AGENTS.md) to your repo root and fill the placeholders with real commands — vague gates are ignored gates.
