@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/bernacamargo/ai-native-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/bernacamargo/ai-native-harness/actions/workflows/ci.yml)
 
-The **AI-native development playbook** I use to ship solo at team speed. It's the setup behind [vagaremota.dev](https://vagaremota.dev) — a live remote-jobs platform built end-to-end with AI agents — and two production-grade MCP servers: [iam-mcp-server](https://github.com/bernacamargo/iam-mcp-server) and [incident-mcp-server](https://github.com/bernacamargo/incident-mcp-server).
+The **AI-native development playbook** I use to ship solo at team speed. Distilled from real production use: [vagaremota.dev](https://vagaremota.dev) — a live remote-jobs platform built end-to-end with AI agents under a repo harness of `AGENTS.md`, 16 project-specific skills, and worktree-based parallel sessions — plus two production-grade MCP servers: [iam-mcp-server](https://github.com/bernacamargo/iam-mcp-server) and [incident-mcp-server](https://github.com/bernacamargo/incident-mcp-server).
 
 Three pieces, each boring on purpose:
 
