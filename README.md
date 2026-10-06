@@ -9,14 +9,20 @@ Three pieces, each boring on purpose:
 | Piece | What it does | Where |
 |---|---|---|
 | **AGENTS.md conventions** | Every agent session inherits project facts, quality gates, and boundaries — no rediscovering, no drift | [`templates/AGENTS.md`](templates/AGENTS.md) |
-| **Agent skills** | Reusable playbooks that encode *how* work ships here, not just what to build | [`skills/`](skills/) |
+| **Agent skills** | Reusable playbooks that encode *how* work ships here, not just what to build — milestones, verification, multi-agent waves | [`skills/`](skills/) |
+| **Subagents** | Read-only reviewer specialists (architecture, security, QA, PR) plus wave workers — specialists that analyze and report, never edit | [`agents/`](agents/) |
 | **Git worktree strategy** | N agent sessions in parallel, each in an isolated worktree, merging clean | [`worktrees/`](worktrees/), [`bin/wt`](bin/wt) |
 
 ## Why it works
 
 - **Context is pre-loaded.** A skill is a distilled senior-engineer decision; AGENTS.md is the repo's contract. The agent starts where you'd want a new hire to start on day three, not day zero.
 - **Guardrails over vibes.** Agents act through typed interfaces (MCP tools, test suites, CI) with verification after every step. "Never push red" is a skill, not a hope.
+- **Reviewer specialists are read-only by constitution.** The architecture, security, QA, and PR reviewers in [`agents/`](agents/) may run tests and read everything, but editing stays with the primary agent — separation of concerns between judging and fixing.
 - **Isolation enables parallelism.** Worktrees make concurrent sessions safe; the strategy doc says when *not* to parallelize, which matters more.
+
+## The multi-agent pattern: agent-waves
+
+The pieces compose: [`skills/agent-waves`](skills/agent-waves/SKILL.md) runs a whole feature as **parallel waves** — the coordinator decomposes an approved plan, creates one worktree per task with `bin/wt`, dispatches [`agents/wave-worker.md`](agents/wave-worker.md) subagents concurrently, verifies evidence between waves, and integrates in landing order. The only human gates: approve the plan, approve the merge.
 
 ## Adopting it
 
