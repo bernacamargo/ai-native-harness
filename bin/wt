@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Minimal git-worktree helper for parallel agent sessions.
+#   wt new <branch>   create ../<repo>-<branch> worktree + branch, print its path
+#   wt ls             list worktrees
+#   wt rm <branch>    remove the worktree and its local branch (after merge)
+set -euo pipefail
+
+usage() { echo "usage: wt new|rm <branch> | wt ls" >&2; exit 1; }
+
+cmd="${1:-}"
+[[ $# -ge 1 ]] || usage
+
+repo=$(basename "$(git rev-parse --show-toplevel)")
+
+case "$cmd" in
+  new)
+    [[ $# -eq 2 ]] || usage
+    b="$2"
+    path="../${repo}-${b//\//-}"
+    git worktree add -b "$b" "$path"
+    echo "session ready: cd $path"
+    ;;
+  ls)
+    git worktree list
+    ;;
+  rm)
+    [[ $# -eq 2 ]] || usage
+    b="$2"
+    path="../${repo}-${b//\//-}"
+    git worktree remove "$path"
+    git branch -D "$b"
+    ;;
+  *)
+    usage
+    ;;
+esac
